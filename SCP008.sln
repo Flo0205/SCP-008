@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamplePlugin", "ExamplePlugin.csproj", "{B09F710A-C51C-46BE-B266-1D9FA91D6858}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCP008", "SCP008.csproj", "{B09F710A-C51C-46BE-B266-1D9FA91D6858}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

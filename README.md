@@ -1,2 +1,2 @@
-# PluginTemplate
+# SCP-008
 

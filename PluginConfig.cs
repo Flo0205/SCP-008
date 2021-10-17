@@ -4,6 +4,7 @@ namespace Example_Plugin
 {
     public class PluginConfig : IConfigSection
     {
-        public string consoleMessage = "Hello World";
+        public int damagePercent = 10;
+        public int damageDelay = 3000;
     }
 }
