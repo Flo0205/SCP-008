@@ -16,7 +16,7 @@ namespace Example_Plugin
     public class PluginClass : AbstractPlugin
     {
         [Config(section = "SCP008")]
-        public static PluginConfig Config;
+        public static readonly PluginConfig Config;
 
         [SynapseTranslation]        
         public new static SynapseTranslation<Translation> Translation { get; set; }
@@ -48,12 +48,6 @@ namespace Example_Plugin
             
             //Eventhandlers
             _ = new EventHandlers();
-        }
-
-        //This Method is only needed if you want to reload anything(Translation and Config will be reloaded by Synapse!)
-        public override void ReloadConfigs()
-        {
-            
         }
     }
 }
