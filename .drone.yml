@@ -1,0 +1,40 @@
+﻿kind: pipeline
+type: docker
+name: default
+steps:
+  - name: sonarbuild
+    image: ubuntu
+    environment:
+      SONAR_HOST:
+        from_secret: SONAR_HOST
+      SONAR_API:
+        from_secret: SONAR_API
+    commands:
+      - apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y apt-transport-https wget default-jre
+      - wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && DEBIAN_FRONTEND=noninteractive dpkg -i packages-microsoft-prod.deb && rm packages-microsoft-prod.deb
+      - apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y dotnet-sdk-5.0
+      - /usr/share/dotnet/dotnet tool install --global dotnet-sonarscanner
+      - PATH=$HOME/.dotnet/tools:$PATH /usr/share/dotnet/dotnet sonarscanner begin /k:"SCP008" /d:sonar.host.url="$SONAR_HOST"  /d:sonar.login="$SONAR_API" && /usr/share/dotnet/dotnet build --configuration Release SCP008.csproj && PATH=$HOME/.dotnet/tools:$PATH /usr/share/dotnet/dotnet sonarscanner end /d:sonar.login="$SONAR_API"
+    when:
+      event:
+        exclude:
+          - pull_request
+  - name: build
+    image: ubuntu
+    commands:
+      - apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y apt-transport-https wget
+      - wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && DEBIAN_FRONTEND=noninteractive dpkg -i packages-microsoft-prod.deb && rm packages-microsoft-prod.deb
+      - apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y dotnet-sdk-5.0
+      - /usr/share/dotnet/dotnet build --configuration Release SCP008.csproj
+    when:
+      event:
+        - pull_request
+  - name: release
+    image: plugins/gitea-release
+    settings:
+      api_key:
+        from_secret: GITEA_API_KEY
+      base_url: https://git.culabs.eu
+      files: bin/Release/net472/*.dll
+    when:
+      event: tag
