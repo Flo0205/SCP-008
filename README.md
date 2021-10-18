@@ -17,7 +17,7 @@ In contrast to the original virus SCP-049's version **can** be cured by using an
 
 ***
 
-##Configuration
+## Configuration
 There is not much to configure.  
 The first is ```damagePercent```.  
 It controls how much damage a player gets per damaging phase.  
