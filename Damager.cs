@@ -1,8 +1,7 @@
 ﻿using Synapse.Api;
 using System.Threading.Tasks;
-using Example_Plugin;
 
-namespace ZombieVampire
+namespace SCP008
 {
     public class Damager
     {
@@ -18,13 +17,14 @@ namespace ZombieVampire
             while (DamagePlayer)
             {
                 await Task.Delay(PluginClass.Config.damageDelay);
+                if (!DamagePlayer) return;
                 int newHealth = (int) player.Health - player.MaxHealth / 100 * PluginClass.Config.damagePercent;
                 if (newHealth <= 0)
                 {
                     player.Inventory.DropAll();
                     player.ChangeRoleAtPosition(RoleType.Scp0492);
                     player.Health = player.MaxHealth;
-                    player.GiveTextHint(PluginClass.Translation.ActiveTranslation.Zombification);
+                    player.GiveTextHint(PluginClass.Translation.ActiveTranslation.Zombification, 10);
                     DamagePlayer = false;
                 }
                 else

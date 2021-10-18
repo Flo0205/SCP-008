@@ -1,6 +1,6 @@
 ﻿using Synapse.Config;
 
-namespace Example_Plugin
+namespace SCP008
 {
     public class PluginConfig : IConfigSection
     {

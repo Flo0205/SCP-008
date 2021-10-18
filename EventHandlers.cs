@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using MEC;
 using Synapse;
-using ZombieVampire;
 
-namespace Example_Plugin
+namespace SCP008
 {
     public class EventHandlers
     {

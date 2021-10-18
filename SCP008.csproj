@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>net472</TargetFramework>
-        <RootNamespace>Example_Plugin</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

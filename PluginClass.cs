@@ -1,7 +1,7 @@
 ﻿using Synapse.Api.Plugin;
 using Synapse.Translation;
 
-namespace Example_Plugin
+namespace SCP008
 {
     [PluginInformation(
         Author = "Flo0205",
@@ -19,27 +19,27 @@ namespace Example_Plugin
         public static readonly PluginConfig Config;
 
         [SynapseTranslation]        
-        public new static SynapseTranslation<Translation> Translation { get; set; }
+        public new static SynapseTranslation<PluginTranslation> Translation { get; set; }
         
         public override void Load()
         {
             SynapseController.Server.Logger.Info("SCP008 Load");
 
             //Translations
-            Translation.AddTranslation(new Translation());
-            Translation.AddTranslation(new Translation
+            Translation.AddTranslation(new PluginTranslation());
+            Translation.AddTranslation(new PluginTranslation
             {
                 Infected = "Du wurdest infiziert, versuch dich schnell zu heilen!",
                 Zombification = "Du wurdest zu einem Zombie!",
                 Heal = "Du konntest dich heilen!"
             }, "GERMAN");
-            Translation.AddTranslation(new Translation
+            Translation.AddTranslation(new PluginTranslation
             {
                 Infected = "あなたは感染しています、すぐに自分を癒してみてください！",
                 Zombification = "あなたはゾンビになりました！",
                 Heal = "あなたは自分自身を癒すことができます！"
             }, "JAPANESE");
-            Translation.AddTranslation(new Translation
+            Translation.AddTranslation(new PluginTranslation
             {
                 Infected = "¡Has sido infectado, trata de curarte rápidamente!",
                 Zombification = "¡Te convertiste en un zombi!",
