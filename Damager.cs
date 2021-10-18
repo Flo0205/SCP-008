@@ -16,9 +16,9 @@ namespace SCP008
         {
             while (DamagePlayer && player != null)
             {
-                await Task.Delay(PluginClass.Config.damageDelay);
+                await Task.Delay(PluginClass.Config.DamageDelay);
                 if (!DamagePlayer || player == null) return;
-                int newHealth = (int) player.Health - player.MaxHealth / 100 * PluginClass.Config.damagePercent;
+                int newHealth = (int) player.Health - player.MaxHealth / 100 * PluginClass.Config.DamagePercent;
                 if (newHealth <= 0)
                 {
                     player.Inventory.DropAll();

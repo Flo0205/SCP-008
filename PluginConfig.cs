@@ -4,7 +4,7 @@ namespace SCP008
 {
     public class PluginConfig : IConfigSection
     {
-        public int damagePercent = 10;
-        public int damageDelay = 3000;
+        public int DamagePercent = 10;
+        public int DamageDelay = 3000;
     }
 }
