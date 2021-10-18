@@ -21,11 +21,6 @@ namespace SCP008
         {
             if (ev.Killer.RoleType == RoleType.Scp0492 && ev.Victim.RoleType != RoleType.Scp0492)
             {
-                foreach (string key in Damagers.Keys)
-                {
-                    SynapseController.Server.Logger.Warn(key);
-                }
-
                 if (!Damagers.ContainsKey(ev.Victim.UserId) && ev.Killer != ev.Victim)
                 {
                     Damagers.Add(ev.Victim.UserId, new Damager(ev.Victim));
@@ -61,7 +56,6 @@ namespace SCP008
             {
                 Damagers[ev.Player.UserId].DamagePlayer = false;
                 Timing.CallDelayed(0.2f, () => Damagers.Remove(ev.Player.UserId));
-                
             }
         }
 

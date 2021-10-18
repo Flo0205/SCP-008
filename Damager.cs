@@ -14,10 +14,10 @@ namespace SCP008
 
         private async Task DamagePlayerAsync(Player player)
         {
-            while (DamagePlayer)
+            while (DamagePlayer && player != null)
             {
                 await Task.Delay(PluginClass.Config.damageDelay);
-                if (!DamagePlayer) return;
+                if (!DamagePlayer || player == null) return;
                 int newHealth = (int) player.Health - player.MaxHealth / 100 * PluginClass.Config.damagePercent;
                 if (newHealth <= 0)
                 {
