@@ -19,12 +19,9 @@ namespace SCP008
         
         private void OnDamage(Synapse.Api.Events.SynapseEventArguments.PlayerDamageEventArgs ev)
         {
-            if (ev.Killer.RoleType == RoleType.Scp0492 && ev.Victim.RoleType != RoleType.Scp0492)
+            if (ev.Killer.RoleType == RoleType.Scp0492 && ev.Victim.RoleType != RoleType.Scp0492 && !Damagers.ContainsKey(ev.Victim.UserId) && ev.Killer != ev.Victim)
             {
-                if (!Damagers.ContainsKey(ev.Victim.UserId) && ev.Killer != ev.Victim)
-                {
-                    Damagers.Add(ev.Victim.UserId, new Damager(ev.Victim));
-                }
+                Damagers.Add(ev.Victim.UserId, new Damager(ev.Victim));
             }
         }
         
