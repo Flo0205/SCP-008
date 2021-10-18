@@ -4,8 +4,8 @@
 SCP-008, known as the zombie virus, is contained at various sites.  
 It's origin is still unknown to the foundation, but it is widely spread around the world.  
 
-Apparently SCP-049 was able to recreate the virus to some extend and improved its own zombies, called SCP-049-2, with it.  
-Anybody hit by said SCP-049-2 will get infected and eventually turned into a zombie.  
+It appears that SCP-049 was able to recreate the virus to some extend and improved its own zombies, called SCP-049-2, with it.  
+Anybody hit by SCP-049-2 will get infected and eventually turns into a zombie.  
 In contrast to the original virus SCP-049's version **can** be cured by using any medical item.
 
 ***
