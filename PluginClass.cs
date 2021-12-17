@@ -9,9 +9,9 @@ namespace SCP008
         Name = "SCP008",
         Description = "Let the zombies have fun too!",
         SynapseMajor = 2,
-        SynapseMinor = 7,
-        SynapsePatch = 1,
-        Version = "1.0.0"
+        SynapseMinor = 8,
+        SynapsePatch = 0,
+        Version = "1.0.1"
     )]
     public class PluginClass : AbstractPlugin
     {
