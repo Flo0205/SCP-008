@@ -27,6 +27,8 @@ namespace SCP008
         
         private void OnHeal(Synapse.Api.Events.SynapseEventArguments.PlayerHealEventArgs ev)
         {
+            if (ev.Player.UserId == null) return;
+            
             if (Damagers.ContainsKey(ev.Player.UserId))
             {
                 ev.Player.GiveTextHint(PluginClass.Translation.ActiveTranslation.Heal);
